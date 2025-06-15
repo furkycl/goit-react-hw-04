@@ -1,0 +1,12 @@
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  padding: 24px;
+  list-style: none;
+  margin: 0;
+}
+
+.item {
+  cursor: pointer;
+}
