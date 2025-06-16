@@ -1,12 +1,22 @@
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 16px;
-  padding: 24px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  padding: 8px;
   list-style: none;
   margin: 0;
+  overflow: visible;
+}
+.galleryItem {
+  flex: 0 0 calc((100% - 40px) / 6);
+  cursor: pointer;
 }
 
-.item {
-  cursor: pointer;
+.galleryImage {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
 }
