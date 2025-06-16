@@ -1,36 +1,10 @@
-import ReactModal from "react-modal";
-import styles from "./ImageModal.module.css";
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
 
-ReactModal.setAppElement("#root");
-
-export default function ImageModal({ isOpen, onRequestClose, image }) {
-  if (!image) return null;
-
-  const { urls, alt_description, user, likes } = image;
-
+const ImageModal = ({ photoUrl, onClose }) => {
   return (
-    <ReactModal
-      isOpen={isOpen}
-      onRequestClose={onRequestClose}
-      overlayClassName={styles.overlay}
-      className={styles.content}
-      shouldCloseOnEsc={true}
-      shouldCloseOnOverlayClick={true}
-    >
-      <img src={urls.regular} alt={alt_description} className={styles.image} />
-      <div className={styles.info}>
-        <p>
-          <strong>Author:</strong> {user.name}
-        </p>
-        <p>
-          <strong>Likes:</strong> {likes}
-        </p>
-        {alt_description && (
-          <p>
-            <strong>Description:</strong> {alt_description}
-          </p>
-        )}
-      </div>
-    </ReactModal>
+    <Lightbox open={!!photoUrl} close={onClose} slides={[{ src: photoUrl }]} />
   );
-}
+};
+
+export default ImageModal;

@@ -100,11 +100,12 @@ export default function App() {
         </>
       )}
       {isLoading && <Loader />}
-      <ImageModal
-        isOpen={!!selectedImage}
-        image={selectedImage}
-        onRequestClose={handleCloseModal}
-      />
+      {selectedImage && (
+        <ImageModal
+          photoUrl={selectedImage.urls.regular}
+          onClose={handleCloseModal}
+        />
+      )}
     </div>
   );
 }
